@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:menu style="width: 180px; margin-left: 10px;font-size: 15px;">
+                <p:submenu label="Select Menu" style="font-size: 14pt;">
+                    <p:menuitem value="View All Products" outcome="productListView.xhtml" style="font-size: 12pt;"/>
+                    <p:separator/>
+                    <p:menuitem value="Product Entry Form" outcome="productentryform.xhtml" style="font-size: 12pt;"/>
+                    <p:separator/>
+                    <p:menuitem value="Update Products" outcome="update.xhtml" style="font-size: 12pt;"/>
+                    <p:separator/>
+                    <p:menuitem value="Purchase Form" outcome="purchaseForm.xhtml" style="font-size: 12pt;"/>
+                    <p:separator/>
+                    <p:menuitem value="Requested Order" outcome="requestOrderDetali.xhtml" style="font-size: 12pt;"/>
+                    <p:separator/>
+                    <p:menuitem value="Purchase Reports" outcome="productListView.xhtml" style="font-size: 12pt"/>
+                    <p:separator/>
+                    <p:menuitem value="Sales Reports" outcome="productListView.xhtml" style="font-size: 12pt"/>
+                </p:submenu>
+            </p:menu>
+        </h:form>
+    </h:body>
+</html>
+

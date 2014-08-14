@@ -1,0 +1,71 @@
+<ui:composition template="publicTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    
+    <ui:define name="content">
+            <h:form id="form">
+                <p:panel id="panel" style="width: auto;margin-top: 10px;margin-left: 160px;">
+                    <p:panelGrid columns="3" style="font-size: 13pt;width: auto;height: 550px;">
+                    <f:facet name="header">
+                         Customer Registration  
+                    </f:facet>
+                 
+                        <p:outputLabel value="Name : *" style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.name}" id="name" style="width: 250px" required="true" requiredMessage="name must be given"/>
+                    <p:message for="name"/>
+                    
+                    <p:outputLabel value="Email : *" style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.email}" id="email" style="width: 250px" required="true" requiredMessage="email must be given"
+                                 validatorMessage="Invalid email format">
+                   <f:validateRegex
+		   pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />      
+                   </p:inputText>
+                    <p:message for="email" />
+                    
+                    <p:outputLabel value="Mobile : *" style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.mobile}" id="mobile" style="width: 250px" required="true" requiredMessage="mobile no. must be given"/>
+                    <p:message for="mobile"/>
+                    
+                    <p:outputLabel value="Phone : " style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.phone}" id="phone" style="width: 250px" required="true" requiredMessage="phone must be given" />
+                    <p:message for="phone"/>
+                    
+                    <p:outputLabel value="Address Line-1 *: " style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.address1}" id="address1" style="width: 250px" required="true" requiredMessage="address1 must be given"/>
+                    <p:message for="address1"/>
+                    
+                    <p:outputLabel value="Address Line-2 : " style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.address2}" id="address2" style="width: 250px"/>
+                    <p:message for="address2"/>
+                    
+                    <p:outputLabel value="City : *" style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.address3}" id="address3" style="width: 250px" required="true" requiredMessage="address3 must be given"/>
+                    <p:message for="address3"/>
+                    
+                    <p:outputLabel value="User ID : *" style="font-size: 11pt;"/>
+                    <p:inputText value="#{client.userid}" id="uid" style="width: 250px" required="true" requiredMessage="User id must be given"/>
+                    <p:message for="uid"/>
+                    
+                    <p:outputLabel value="Password : *" style="font-size: 11pt;"/>
+                    <p:password feedback="true"  value="#{client.password}" match="password1" id="password1" style="width: 250px" required="true" requiredMessage="Password must be given"/>
+                    <p:message for="password1"/>
+                    
+                    <p:outputLabel value="Re-Password : *" style="font-size: 11pt;"/>
+                    <p:password id="password2" value="#{client.password}"  required="true" requiredMessage="Password does not match" style="width: 250px"/>
+                    <p:message for="password2"/>
+                    
+                    
+                    <p:commandButton value="Submit"  actionListener="#{client.addClientData()}" ajax="false" style="width: 100px; height: 40px; font-size: 12pt"/>
+                    <p:commandButton value="Reset" update="panel" process="@this" style="width: 100px; height: 40px; font-size: 12pt">  
+                      <p:resetInput target="panel" />  
+                    </p:commandButton>
+                    <h:outputText value="#{client.msg2}"/>                  
+                </p:panelGrid>   
+            </p:panel>    
+        </h:form>
+    </ui:define>
+                    
+</ui:composition>

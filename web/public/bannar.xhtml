@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <script type="text/javascript">
+            function clearInput(object, action, defaulValue)
+            {
+                var object = $(object);
+                var value = jQuery.trim(object.val());
+
+                if (action == 'focus')
+                {
+                    if (value == defaulValue)
+                        object.val('');
+                }
+                else if (action == 'blur')
+                {
+                    if (value == '')
+                        object.val(defaulValue);
+                }
+            }
+        </script>
+        <style type="text/css">
+
+            .main_header{width: 1100px; height: 156px;margin: 0 auto;background-color: #C6DEFF; margin-top: -21px;margin-left: -5px;border-bottom: 5px solid cadetblue;}          
+            .main_logo{margin: 16px 22px; position: relative;}
+            .top{float: right;margin-top: -140px;margin-right: 320px;position: relative;font-size: 13pt; font-family: serif,fantasy,cursive;text-decoration: none;}
+            .search{float: right;margin-top: -60px; margin-right: -30px; position: relative;}
+            .reg{position: relative; float: right; margin-top: -60px; margin-right: -170px;}
+            .login{position: relative; float: right; margin-top: -130px; margin-right: -100px;}
+            .clock_public{float: right; margin-right: 10px; margin-top: -100px; position: relative;}
+        </style>
+    </h:head>
+    <h:body>
+        <div class="main_header">
+            <div class="main_logo">
+                <h:graphicImage url="/images/logo_new.png" height="130" width="280"/>
+            </div> 
+            <div class="top">
+                <h:link outcome="/public/index.xhtml">Home</h:link>&nbsp;&nbsp;
+                <h:link outcome="/public/howItWorks.xhtml">How it Works</h:link>&nbsp;&nbsp;
+                <h:link outcome="/public/policy.xhtml">Policy</h:link>&nbsp;&nbsp;
+                <h:link outcome="/public/faq.xhtml">F.A.Q</h:link>&nbsp;&nbsp;
+                <h:link outcome="/public/contactUs.xhtml">Contact Us</h:link><br/><br/>
+            </div>
+            <div class="clock_public">
+            <object><embed src="http://www.clocktag.com/cs/d25.swf" width="150" height="40"  wmode="transparent" type="application/x-shockwave-flash"></embed></object>
+        </div>
+            <h:form> 
+                <div class="search">
+                    <!--<p:inputText placeholder="Search by Category or Band Name" size="55"/>-->
+                    <input type="text" value="Search by Category or Band Name" onblur="clearInput(this, 'blur', 'Search by Category or Band Name')" onfocus="clearInput(this, 'focus', 'Search by Category or Band Name')" style="height: 34px; width: 350px;border: 0px; border-radius: 10px 0 0 10px; background-color: #AADDE8; text-align: center; color: #676767;"/>
+                    <p:commandButton value="Search" style="width: 100px; height: 37px; font-size: 12pt;"/>
+                </div>
+                <div class="reg">
+                    <p:commandButton rendered="#{users.check() eq '0'}" value="Registration" action="registration?faces-redirect=true" style="width: 120px; height: 37px; font-size: 12pt;" ajax="false"/>  
+                    <p:commandButton rendered="#{users.check() eq '1'}" value="Log Out" actionListener="#{loginBean.logout()}" action="index?faces-redirect=true" style="width: 100px; height: 37px; font-size: 12pt;"/>
+                
+                </div>
+                
+                <div class="login">
+                    <p:commandButton rendered="#{users.check() eq '0'}" value="Login" oncomplete="log.show()" style="width: 100px; height: 40px; font-size: 12pt;margin-top: -10px;margin-right: -96px;border-radius: 10px;"/>
+                   <p:menuButton rendered="#{users.check() eq '1'}" value="Profile" >                       
+                        <p:menuitem value="Update Profile"  icon="ui-icon-arrowrefresh-1-w"/>  
+                        <p:menuitem value="Order Status" url="/faces/customer/co.xhtml"/> 
+                        <p:separator />  
+                        <p:menuitem value="Homepage" url="#" icon="ui-icon-extlink" />  
+                    </p:menuButton>
+                </div>
+            </h:form>
+            <p:dialog widgetVar="log" modal="true" resizable="false" showEffect="slide" hideEffect="fade">
+                <ui:include src="/login.xhtml"/>
+            </p:dialog>
+        </div>
+    </h:body>
+</html>
+

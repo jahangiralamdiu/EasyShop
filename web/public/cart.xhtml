@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet name="./css/default.css"/>
+
+    </h:head>
+    <h:body>
+        <div class="cart_pane effect">
+                <ui:insert name="top">
+                    <ui:include src="bannar.xhtml" />
+                </ui:insert>
+        <h:form id="form">
+            <p:panel header="Cart Items" id="ppanel" style="width: 1085px; font-size: 16pt;">          
+                <p:dataTable id="ctable" value="#{cartItem.cartDetails()}" var="c" editable="true" editMode="cell" style="margin-bottom: 15px; text-align: center;">
+                    <p:column style="font-size: 11pt">
+                        <f:facet name="header">Image</f:facet>
+                        <h:graphicImage url="/images/#{c.imageURL}" height="50" width="50"/> 
+                    </p:column>
+                    <p:column style="font-size: 11pt">
+                        <f:facet name="header">Name</f:facet>
+                            #{c.productName}
+                    </p:column>
+                    <p:column style="font-size: 11pt">
+                        <f:facet name="header">Brand</f:facet>
+                            #{c.companyName}
+                    </p:column>
+                    <p:column style="font-size: 11pt">
+                        <f:facet name="header">Price</f:facet>
+                        <h:outputLabel id="pc" value="#{c.initPrice()}"/>                         
+                    </p:column>
+                    <p:column styleClass="ui-editable-column" style="font-size: 11pt">
+                        <f:facet name="header">Quantity</f:facet>
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{c.quantity}"/>                
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{c.quantity}" style="width: 20px;">
+                                    <p:ajax event="keyup" update="pc :form:total" listener="#{c.initPrice()}"/> 
+                                </p:inputText>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column style="font-size: 11pt">
+                        <center>
+                        <h:commandLink id="remove" action="#{cartItem.removeProduct(c)}">
+                            <h:graphicImage value="/resources/icons/delete-cart.png" style="width: 45px; height: 40px;"/>
+                            <p:tooltip for="remove" value="Remove Cart" showEffect="fade" hideEffect="fade" />
+                        </h:commandLink>
+                        </center>
+                    </p:column> 
+                </p:dataTable> 
+                <h:outputLabel id="total" value="Total Price :&nbsp;&nbsp;&nbsp;   #{cartItem.calPrice()} Tk" styleClass="total_price"/>
+            </p:panel><br/>
+                <h:commandButton id="cont" value="Continue Shopping" action="productViewCustomer" styleClass="continue_shoping"/>&nbsp;&nbsp;
+                <h:commandButton id="check" value="Check Out" action="checkout"  styleClass="check_out_btn"/>&nbsp;&nbsp;
+            
+            <p:tooltip for="cont" value="Continue Your Shopping" showEffect="fade" hideEffect="fade"/>
+            <p:tooltip for="check" value="Please Check Out Here" showEffect="fade" hideEffect="fade" />
+        </h:form>
+        </div>
+    </h:body>
+</html>
+

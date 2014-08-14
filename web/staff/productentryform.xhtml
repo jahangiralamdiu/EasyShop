@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="./staffTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <ui:define name="content">
+        <center>
+        <h:form class="product_entry_form" enctype="multipart/form-data">
+
+            <p:outputPanel>
+                    <h:outputLabel value="Product Entry Form" style="font-size: 16pt; font-weight: bold;" /><br/>
+                    <p:panelGrid columns="2" styleClass="pentryform" style="width: 550px; height: 500px; font-size: 12pt;">
+                        <p:outputLabel value="Product Id" style="font-size: 12pt;"/>
+                        <p:inputText id="pid" value="#{product.productId}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel  value="Product Name" style="font-size: 12pt;"/>
+                        <p:inputText id="pname" value="#{product.productName}" required="true" requiredMessage="Provide Product Name" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Company Name" style="font-size: 12pt;"/>
+                        <p:inputText id="comn" value="#{product.companyName}" required="true" requiredMessage="Provide Company Name" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Product Group" style="font-size: 12pt;"/>
+                        <p:selectOneMenu id="pg" value="#{product.groupId}" style="width: 160px;font-size: 12pt;width: 240px;text-align: center">
+                            <f:selectItem itemLabel="--Select catagory --" itemValue="" />
+                            <f:selectItems value="#{product.productGoroups}" />
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Stock Id" style="font-size: 12pt;"/>
+                        <p:inputText id="stid" value="#{product.stockId}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Unit Cost" style="font-size: 12pt;"/>
+                        <p:inputText id="up" value="#{product.unitCost}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Sales Price" style="font-size: 12pt;"/>
+                        <p:inputText id="sp" value="#{product.salesPrice}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Date" style="font-size: 12pt;"/>
+                        <p:calendar effect="explode" id="date" value="#{product.addDate}" required="true" pattern="dd-MM-yyyy" requiredMessage="Select a date" size="38"/>
+                        <p:outputLabel value="Select Image" style="font-size: 12pt;"/>
+                        <p:fileUpload value="#{product.uploadedFile}" mode="simple" style="font-size: 12pt;"/>
+                        <p:commandButton value="Save" actionListener="#{product.addProduct()}" ajax="false" style="font-size: 12pt;"/>
+                        <p:commandButton value="Reset" type="reset" style="font-size: 12pt;"/>
+                    </p:panelGrid>
+                    <h:outputLabel id="msgs" value="#{product.message}"/>
+                </p:outputPanel>
+            </h:form>
+        </center>
+    </ui:define>
+</ui:composition>
+

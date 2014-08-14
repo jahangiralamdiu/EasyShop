@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Request Order</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./staffTemplate.xhtml">
+            <ui:define name="content">
+                    <h:form class="requested_order">
+                        <p:outputPanel>
+                            <h:outputLabel value="Request Order" style="font-size: 20px; font-weight: bold; margin-left: 380px;"/><br/>
+                            <p:dataTable  value="#{requestCheck.sq()}" var="p" paginator="true" rows="15" rowsPerPageTemplate="10,20,30" style="font-size: 10pt;">
+                                <p:column headerText="Order ID" >
+                                    #{p.rorderId}
+                                </p:column>
+                                <p:column headerText="Client ID">
+                                    #{p.clientId}
+                                </p:column>
+                                <p:column headerText="Pay Method">
+                                    #{p.paymentMethod}
+                                </p:column>
+                                <p:column headerText="Transaction ID">
+                                    #{p.transactionId}
+                                </p:column>
+                                <p:column headerText="Pin Number">
+                                    #{p.pinNumber}
+                                </p:column>
+                                <p:column headerText="Total Price">
+                                    #{p.totalPrice}
+                                </p:column>
+                                <p:column headerText="Address">
+                                    #{p.address}
+                                </p:column>
+                                <p:column headerText="Date">
+                                    #{p.rorderDate}
+                                </p:column>
+                                <p:column headerText="Order Status">
+                                    #{p.or_status}
+                                </p:column>
+                                <p:column headerText="Action">
+                                    <h:commandButton value="Accept" action="#{requestCheck.acceptRequest()}"  >
+                                        <f:setPropertyActionListener target="#{requestCheck}" value="#{p}" />
+                                    </h:commandButton> 
+                                </p:column>
+                                <p:column headerText="Reject">
+                                    <h:commandButton value="Cancel" action="#{requestCheck.cancelRequest()}">
+                                        <f:setPropertyActionListener target="#{requestCheck}" value="#{p}"/>
+                                    </h:commandButton>
+                                </p:column>
+                            </p:dataTable> 
+                        </p:outputPanel>
+                    </h:form>
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>

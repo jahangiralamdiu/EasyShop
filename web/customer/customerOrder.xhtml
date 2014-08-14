@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Customer Order</title>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <div class="customer_order_panel effect">
+            <ui:insert name="top">
+                    <ui:include src="/public/bannar.xhtml" />
+                </ui:insert>
+            <h:form class="customer_form">
+            <p:panel header="Review Order" style="font-size: 14pt;width: 1085px; height: auto">
+                
+                <h:outputLabel value="Order No : "/>
+                <h:outputLabel value="#{checkOut.rorderIdInitiate()}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h:outputLabel value="Order By : "/><h:outputLabel value="j"/><br/><br/>
+                <h:outputLabel value="Item Summary : " /><br/><br/>
+              
+                <p:dataTable var="c" value="#{cartItem.cartDetails()}" style="width: 600px;font-size: 12pt; height: auto">
+                    <p:column headerText="Name">
+                        #{c.productName}                        
+                    </p:column>
+                     <p:column headerText="Quantity">
+                        #{c.quantity}                        
+                    </p:column>
+                </p:dataTable><br/><br/>
+                <div class="customer_totalprice">
+                <h:outputLabel value="Total Price : "/>&nbsp;
+                <h:outputLabel value="#{cartItem.calPrice()} BDT"/> <br/><br/>
+                </div>
+                <h:outputLabel value="Delivery Address : "/>&nbsp;&nbsp;&nbsp;
+                <h:outputLabel value="#{checkOut.createAddress()}"/><br/><br/>
+
+                <h:commandButton value="Print" action="Print" styleClass="customer-print-btn"/>&nbsp;&nbsp;&nbsp; 
+                <h:commandButton value="Confirm" action="#{checkOut.placeOrder()}" styleClass="customer_confirm_btn"/>&nbsp;&nbsp;&nbsp;         
+            </p:panel>
+
+        </h:form>
+        </div>
+    </h:body>
+</html>
+

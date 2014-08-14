@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <style type="text/css">
+            .login_staff{width: 500px; margin: 0 auto;margin-top: 140px;}
+        </style>
+    </h:head>
+    <h:body>
+        <div class="login_staff effect">
+            <h:form id="login">
+                <p:panel header="Login Here" style="height: 300px;font-size: 15pt; font-family: monospace;">
+                    <div class="login_panel_grid">
+                        <h:panelGrid columns="2" style="height: 180px;">
+                            <h:outputText value="User Name : "/>
+                            <p:inputText id="userName" value="#{loginBean.password2}" required="true" requiredMessage=" User Name Invalid" size="30"/>                          
+                            <h:outputText value="Password    : " />  
+                            <p:password id="password" value="#{loginBean.password2}" required="true" requiredMessage="Password Invalid" size="30"/>
+                            <h:outputLabel value="Type : "/>
+                            <h:selectOneMenu id="type" value="#{loginBean.password2}"  style="font-size: 11pt; width: 180px; text-align: center" >
+                                <f:selectItem id="aa" itemLabel="--Select Type--" itemValue=""/>
+                                <f:selectItem id="ad" itemLabel="Admin" itemValue="admin"/>
+                                <f:selectItem id="ac" itemLabel="Staff" itemValue=""/>
+                            </h:selectOneMenu> 
+                            <h:outputText value="Remember me! : " />  
+                            <p:selectBooleanCheckbox value="" />
+                            <h:commandLink  actionListener="#{loginBean.password}" value="Forget Password?"/><br/>                           
+                        </h:panelGrid>
+                         <p:watermark for="userName" value="Enter User Name"/>
+                          <p:watermark for="password" value="Enter Password"/>
+                        <p:commandButton value="Reset" action="login" style="float: right;margin-right: 0px;width: 90px; height: 45px; border-radius: 5px;font-size: 12pt;"/>
+                        <p:commandButton value="Login" action="index" style="float: right;margin-right: 15px; width: 90px; height: 45px; border-radius: 5px; font-size: 12pt;"/>
+                        
+                    </div>
+                </p:panel>  
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Easy Shop</title>
+        <style type="text/css">
+            .panel_cart{margin-top: -38px; width: 180px}
+            .panel_menu_left{margin-top: -10px; }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <div class="panel_cart">
+                <p:panel style="font-weight: bold; font-family: cursive;margin-top: 20px">
+                    <center>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<h:outputLabel id="ct" value="Items : (#{cartItem.productCount()})" style="color: maroon"/><br/>
+                        <h:link outcome="cart" target="_blank"><p:graphicImage value="/resources/icons/cart3.png" style="height: 50px; width: 70px;"/></h:link>
+                    </center>
+                </p:panel>
+            </div>
+            <br/>
+            <div class="panel_menu_left">
+                <p:panel header="Catagories" style="width:172px;font-size: 13pt; font-weight: bold;">
+                    <p:menu style="margin-left: -16px;width: 160px;margin-top: -5px; background-color: #C6DEFF;">
+                        <p:menuitem value="View All Products" outcome="productViewCustomer.xhtml" style="font-size: 10pt; font-weight: bold;" />
+                    </p:menu>
+                    <p:separator/>
+                    <p:panelMenu style="width:170px; margin-left: -15px;"> 
+                        <p:submenu label="Men">
+                            <p:menuitem value="Tshirts" outcome="tshirt.xhtml" />  
+                            <p:menuitem value="Pants" outcome="pants.xhtml"/>  
+                            <p:menuitem value="Panjabies" outcome="panjabies.xhtml"/>
+                            <p:menuitem value="Shoes" outcome="productViewCustomer.xhtml" />  
+
+                        </p:submenu>
+                        <p:submenu label="Women">
+                            <p:menuitem value="Salwar" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="Sharies" outcome="productViewCustomer.xhtml"/>   
+                            <p:menuitem value="Shoes" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                        <p:submenu label="Children">               
+                            <p:menuitem value="Shirts" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="Pants" outcome="productViewCustomer.xhtml"/>                    
+                        </p:submenu>
+                        <p:submenu label="Summer">                   
+                            <p:menuitem value="Tshirts" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="Pants" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="Shoes" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                        <p:submenu label="Electronics">                      
+                            <p:menuitem value="Computer" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="Laptop" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="TV" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                        <p:submenu label="Vehicles">                      
+                            <p:menuitem value="Motor Cycle" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="ByCycle" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="Baby Car" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                        <p:submenu label="Leather">                      
+                            <p:menuitem value="Shoes" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="Belt" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="Jacket" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                        <p:submenu label="Furniture">                      
+                            <p:menuitem value="Sofa" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="Almirah" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="Show Case" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                        <p:submenu label="Home Appliances">                      
+                            <p:menuitem value="Micro Oven" outcome="productViewCustomer.xhtml" />  
+                            <p:menuitem value="Iron" outcome="productViewCustomer.xhtml"/>  
+                            <p:menuitem value="Blender" outcome="productViewCustomer.xhtml" />                     
+                        </p:submenu>
+                    </p:panelMenu> 
+                </p:panel>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="./staffTemplate.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+        <ui:define name="content">
+            <center>
+                <h:form id="pform">
+                    <p:growl id="growl" showDetail="true" sticky="true" /> 
+                    <h:outputLabel value="Purchase Order Form" style="font-size: 20px; font-weight: bold;" /><br/>
+                    <p:panelGrid columns="2" style="width: 600px; height: 500px;">
+                        <p:outputLabel value="Product ID" style="font-size: 12pt;"/>
+                        <p:selectOneMenu id="dnd" value="#{purchaseOrder.productId}" style="font-size: 12pt;width: 235px">
+                            <f:selectItem itemLabel="Select Product ID" itemValue="Select Product ID"/>
+                            <f:selectItems value="#{product.getAllProductIds()}" />
+                            <p:ajax event="change" update="pn cn cid st uct qt tt" listener="#{purchaseOrder.getProductByID()}"/>
+                        </p:selectOneMenu> 
+                        <p:outputLabel value="Product Name" style="font-size: 12pt;"/>
+                        <p:inputText id="pn" value="#{purchaseOrder.productName}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Company Name" style="font-size: 12pt;"/>
+                        <p:inputText id="cn" value="#{purchaseOrder.companyName}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Catagory Id" style="font-size: 12pt;"/>
+                        <p:inputText id="cid" value="#{purchaseOrder.groupId}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Available Stock" style="font-size: 12pt;"/>
+                        <p:inputText id="st" value="#{purchaseOrder.stockInHand}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Unit Price" style="font-size: 12pt;"/>
+                        <p:inputText id="uct" value="#{purchaseOrder.unitCost}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Quantity" style="font-size: 12pt;"/>
+                        <p:inputText id="qt" value="#{purchaseOrder.quantity}" style="font-size: 12pt;width: 230px;">
+                            <p:ajax event="keyup" update="tt" listener="#{purchaseOrder.calTotalPrice()}"/>
+                        </p:inputText>
+                        <p:outputLabel value="Total" style="font-size: 12pt;"/>
+                        <p:inputText id="tt" value="#{purchaseOrder.totalPrice}" style="font-size: 12pt;width: 230px;"/>
+                        <p:outputLabel value="Date" style="font-size: 12pt;"/>
+                        <p:calendar effect="explode" id="date" value="#{purchaseOrder.purchaeDate}" required="true" pattern="dd-MM-yyyy" requiredMessage="Select a date" size="38"/>
+                        <p:commandButton value="Purchase" actionListener="#{purchaseOrder.addPurchase()}" update="growl st qt tt" style="width: 100px; height: 40px; font-size: 11pt;"/>
+                        <p:commandButton value="Reset" type="reset" style="width: 100px; height: 40px; font-size: 11pt;">
+                            <p:ajax event="click" listener="#{purchaseOrder.resetAll()}" update="pform"/>
+                        </p:commandButton>
+                    </p:panelGrid>
+
+                </h:form>
+            </center>
+        </ui:define>
+    </ui:composition>

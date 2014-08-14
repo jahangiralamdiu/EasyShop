@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Easy Shop</title>
+    </h:head>
+
+    <h:body>
+        <div class="container effect">
+        <div id="top">
+            <ui:insert name="top">
+                <ui:include src="bannar.xhtml"/>
+            </ui:insert>
+        </div>
+            <div id="left">
+                <ui:insert name="left"><ui:include src="mainMenue.xhtml" /></ui:insert>
+                
+            </div>  
+            
+            <div class="payment_method">
+                <p:panel header="Payment Process" style="font-size: 10pt;">
+                <ui:insert name="left">
+                    <h:graphicImage url="/resources/icons/Payment-Method.png" style="margin-left: -10px"/>
+                </ui:insert>
+                </p:panel>
+            </div>
+            <div class="need_help">
+                <p:panel header="Need Help?" style="font-size: 10pt;">
+                <ui:insert name="left">
+                    <h:graphicImage url="/resources/icons/Need-Help.png" style="margin-left: -10px"/>
+                </ui:insert>
+                </p:panel>
+            </div>
+          
+            <div id="content" class="left_content">
+                <ui:insert name="content"/>
+            </div>
+
+        </div>
+    </h:body>
+
+</html>

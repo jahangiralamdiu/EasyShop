@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="public/cart.xhtml" x="13" y="241" zoom="true"/>
+        <Node id="public/productViewCustomer.xhtml" x="-37" y="378" zoom="true"/>
+        <Node id="staff/productListView.xhtml" x="263" y="451" zoom="true"/>
+        <Node id="staff/productentryform.xhtml" x="409" y="337" zoom="true"/>
+        <Node id="public/login.xhtml" x="838" y="311" zoom="true"/>
+        <Node id="public/frontItems.xhtml" x="1193" y="441" zoom="true"/>
+        <Node id="public/mainMenue.xhtml" x="365" y="650" zoom="true"/>
+        <Node id="public/right.xhtml" x="620" y="115" zoom="true"/>
+        <Node id="staff/update.xhtml" x="38" y="509" zoom="true"/>
+        <Node id="public/bottom.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="staff/purchaseForm.xhtml" x="384" y="65" zoom="true"/>
+        <Node id="public/index.xhtml" x="871" y="513" zoom="true"/>
+        <Node id="public/customerHome.xhtml" x="572" y="597" zoom="true"/>
+        <Node id="public/customerBanner.xhtml" x="749" y="251" zoom="true"/>
+        <Node id="staff/menuItem.xhtml" x="497" y="502" zoom="true"/>
+        <Node id="public/DetailedProduct.xhtml" x="238" y="267" zoom="true"/>
+        <Node id="staff/staffHeader.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="public/slideShow.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="staff/staffTemplate.xhtml" x="1194" y="547" zoom="true"/>
+        <Node id="public/registration.xhtml" x="489" y="194" zoom="true"/>
+        <Node id="public/paymentMethod.xhtml" x="756" y="177" zoom="true"/>
+        <Node id="staff/login.xhtml" x="778" y="36" zoom="true"/>
+        <Node id="public/bannar.xhtml" x="848" y="391" zoom="true"/>
+        <Node id="public/temp.xhtml" x="445" y="540" zoom="true"/>
+        <Node id="public/publicTemplate.xhtml" x="1181" y="500" zoom="true"/>
+        <Node id="staff/index.xhtml" x="890" y="607" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

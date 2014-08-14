@@ -1,0 +1,46 @@
+
+<ui:composition template="./staffTemplate.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="content">
+<center>
+        <h:form id="edit_form" enctype="multipart/form-data">
+            
+            <p:outputPanel >
+                <h:outputLabel value="Update Product Information" style="font-size: 22px; font-weight: bold;">
+                    <p:panelGrid columns="2" style="width: 550px; height: 500px;">
+                    <p:outputLabel value="Product Id" style="font-size: 12pt;"/>
+                    <p:inputText id="pid" value="#{product.productId}" style="font-size: 12pt;width: 230px;"/>
+                    <p:outputLabel  value="Product Name" style="font-size: 12pt;"/>
+                    <p:inputText id="pname" value="#{product.productName}" required="true" requiredMessage="Provide Product Name" style="font-size: 12pt;width: 230px;"/>
+                    <p:outputLabel value="Company Name" style="font-size: 12pt;"/>
+                    <p:inputText id="comn" value="#{product.companyName}" required="true" requiredMessage="Provide Company Name" style="font-size: 12pt;width: 230px;"/>
+                    <p:outputLabel value="Product Group" style="font-size: 12pt;"/>
+                    <h:selectOneMenu id="pg" value="#{product.groupId}" style="font-size: 12pt;width: 240px; text-align: center">
+                        <f:selectItem itemLabel="--Select catagory --" itemValue=""/>
+                        <f:selectItems value="#{product.productGoroups}" itemLabel="#{product.groupId}" itemValue="#{product.groupId}"/>
+                    </h:selectOneMenu>
+                    <p:outputLabel value="Stock Id" style="font-size: 12pt;"/>
+                    <p:inputText id="stid" value="#{product.stockId}" style="font-size: 12pt;width: 230px;"/>
+                    <p:outputLabel value="Unit Cost" style="font-size: 12pt;"/>
+                    <p:inputText id="up" value="#{product.unitCost}" style="font-size: 12pt;width: 230px;"/>
+                    <p:outputLabel value="Sales Price" style="font-size: 12pt;"/>
+                    <p:inputText id="sp" value="#{product.salesPrice}" style="font-size: 12pt;width: 230px;"/>            
+                    <p:outputLabel value="Current Image" style="font-size: 12pt;"/>
+                    <h:graphicImage url="/images/#{product.imageURL}" height="50" width="50"/> 
+                    <p:outputLabel value="Change Image" style="font-size: 12pt;"/>
+                    <p:fileUpload value="#{product.uploadedFile}" mode="simple" />
+                    <p:commandButton value="Update Info" action="#{product.updateProduct()}" ajax="false" style="width: 120px;height: 40px;font-size: 9pt;border-radius: 5px"/>
+                    <p:commandButton value="Update Image" action="#{product.changeImg()}" ajax="false" style="width: 120px;height: 40px;font-size: 9pt;border-radius: 5px"/>
+
+                </p:panelGrid>
+                </h:outputLabel>
+            </p:outputPanel>
+        </h:form>
+</center>
+    </ui:define>
+</ui:composition>

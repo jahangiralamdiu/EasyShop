@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <center>
+            <h:form style="font-size: 11pt;">
+            <p:panel id="panel" style="width: 520px;">
+                <p:panelGrid columns="3" style="width: 500px; height: 500px; font-size: 11pt;">
+                <f:facet name="header">
+                    <p style="font-size: 13pt;">Input Information</p>
+                </f:facet>
+                
+                    <p:outputLabel for="eName" value="Name: " title="Name" style="font-size: 11pt"/>
+                <p:inputText id="eName" value="#{employee.empname}" required="true" requiredMessage="name is required" size="35"/>
+                <p:message for="eName"/>
+                
+                
+                <h:outputLabel value="Designation" title="Designation"/>
+                <p:selectOneMenu id="desig" value="#{employee.designation}" style="width: 200px;font-size: 11pt; text-align: center" required="true" >
+                    <f:selectItem itemLabel="--Select-Designation--" itemValue=""/>
+                    <f:selectItem itemLabel="manager" itemValue="manager"/>
+                    <f:selectItem itemLabel="sales-man" itemValue="sales-man"/>
+                    <f:selectItem itemLabel="security" itemValue="security"/> 
+                    <f:selectItem itemLabel="cashier" itemValue="cashier"/> 
+              </p:selectOneMenu>
+                <h:outputLabel value=""/>
+                
+                <p:outputLabel value="Email" title="Email" style="font-size: 11pt"/>
+             <p:inputText value="#{employee.email}" id="email" required="true" size="35" requiredMessage="email must be given" validatorMessage="invalid email"> 
+             
+              <f:validateRegex
+		   pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />      
+             </p:inputText>           
+             <p:message for="email"/>
+                
+             <p:outputLabel value="Phone" title="phone" style="font-size: 11pt"/>
+                <p:inputText id="ph" value="#{employee.phone}" size="35" required="true" requiredMessage="phone no. must be given"/>
+                <p:message for="ph"/>
+                
+                
+                <p:outputLabel value="Road/holdings No." title="road" style="font-size: 11pt"/>
+                <p:inputText id="rd" value="#{employee.address}" size="35" required="trur" requiredMessage="Road/house no must be given"/>
+                <p:message for="rd"/>
+                
+                <p:outputLabel value="Post-Office" title="post" style="font-size: 11pt"/>
+                <p:inputText id="add2" value="#{employee.address2}" size="35" required="true" requiredMessage="data must be given"/>
+                <p:message for="add2"/>
+                
+                
+                <p:outputLabel value="city" title="city" style="font-size: 11pt"/>
+                <p:inputText id="add3" value="#{employee.address3}" size="35" required="true" requiredMessage="data must be given"/>
+                <p:message for="add3"/>
+                
+                <p:outputLabel value="Joining Date" title="join" style="font-size: 11pt"/>
+                <p:calendar id="date" value="#{employee.date}" pattern="dd-MM-yyyy" size="35" required="true" requiredMessage="Date must be given"/>
+                <p:message for="date"/>
+                
+                
+                <p:outputLabel value="UserName" title="username" style="font-size: 11pt"/>
+                <p:inputText id="user" value="#{employee.userid}" required="true" size="35" requiredMessage="User name must be given"/>
+                <p:message for="user"/>
+                
+                
+                <p:outputLabel value="Password" title="password" style="font-size: 11pt"/>
+                <p:password id="pass" value="#{employee.password}" required="true" size="35" requiredMessage="Password must be given"/>
+                <p:message for="pass"/>
+                
+                <h:outputLabel value="Role Type" />
+                <p:selectOneMenu id="role" value="#{employee.role}" required="true" style="width: 200px;font-size: 11pt" requiredMessage="role must be given">
+                    <f:selectItem itemLabel="Select role" itemValue=""/>
+                    <f:selectItem itemLabel="admin" itemValue="admin"/>
+                    <f:selectItem itemLabel="Staff" itemValue="staff"/>
+                    <f:selectItem itemLabel="customer" itemValue="customer"/>
+                </p:selectOneMenu>
+                <p:message for="role"/>
+                
+                <p:commandButton value="submit" action="#{employee.addEmployeeData()}" ajax="false" style="font-size: 12pt;width: 100px; height: 40px;"/>
+                
+                <p:commandButton value="Reset" update="panel" process="@this" style="font-size: 12pt;width: 100px; height: 40px;"  >  
+                      <p:resetInput target="panel" />  
+               </p:commandButton>
+                <h:outputLabel value="#{employee.msg}"/>
+            </p:panelGrid> 
+            </p:panel>
+        </h:form>
+        </center>
+    </h:body>
+</html>
+

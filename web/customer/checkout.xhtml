@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <div class="check_pane effect">
+            <ui:insert name="top">
+                    <ui:include src="/public/bannar.xhtml" />
+                </ui:insert>
+            <h:form>
+            <center>
+                <p:panel header="Choose Transaction Process" style=" font-size: 17pt; min-height: 390px">
+                    <p:panelGrid style="font-size: 13pt;">
+                        <p:row>
+                            <p:column>
+                                <h:outputLabel value="Payment Method : *"/>
+                            </p:column>
+                            <p:column>
+                                <h:selectOneMenu id="pm" value="#{checkOut.paymentMethod}">
+                                    <f:selectItem itemLabel="--Select Payment Method --" itemValue=""/>
+                                    <f:selectItem itemLabel="BKash" itemValue="bkash"/>
+                                    <f:selectItem itemLabel="Dutch Bangla Mobile" itemValue="db mbl"/>
+                                    <f:selectItem itemLabel="UKash" itemValue="ukash"/>
+                                    <f:selectItem itemLabel="Credit/Master Card" itemValue="card"/>
+                                    <f:selectItem itemLabel="Bank Transfer" itemValue="bank"/>
+                                    <f:ajax event="change" render="msg" listener="#{checkOut.payMethod()}" />
+                                </h:selectOneMenu>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column colspan="2">
+                                <h:outputLabel id="msg" value="#{checkOut.message}"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column>
+                                <h:outputLabel value="Transaction number : *"/>
+                            </p:column>
+                            <p:column>
+                                <h:inputText id="tid" value="#{checkOut.transactionId}" required="true" requiredMessage="You must provide an Transaction ID"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column>
+                                <h:outputLabel value="Pin number : *"/>
+                            </p:column>
+                            <p:column>
+                                <h:inputText id="pid" value="#{checkOut.pinNumber}"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                        <p:column>
+                        <h:outputLabel value="Address *"/>
+                        </p:column>
+                            <p:column>
+                        <h:inputText value="#{checkOut.address}"/>
+                        </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column>
+                        <h:outputLabel value="Address (Line 2)"/>
+                            </p:column>
+                            <p:column>
+                        <h:inputText value="#{checkOut.address2}"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column>
+                        <h:outputLabel value="City *"/>
+                            </p:column>
+                            <p:column>
+                        <h:inputText value="#{checkOut.city}"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid><br/>&nbsp;&nbsp;&nbsp;
+                    <h:commandButton class="check_btn_review" value="Review Order" action="customerOrder"/>
+                    
+                </p:panel>
+            </center>
+        </h:form>
+        </div>
+    </h:body>
+</html>
+

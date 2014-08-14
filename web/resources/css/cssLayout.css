@@ -1,0 +1,163 @@
+.main{}
+.container{
+    width: 1100px;min-height: 1200px; height: auto;margin: 0 auto;margin-top: 10px; border-top: 10px solid grey; border-radius: 10px;
+}
+.right{float: right;}
+#form{width: auto;height: auto;}
+#product_view_form{width: auto; height: auto;}
+#product-view-customer-header{font-size: 16pt;}
+.staff_tem{width: 1100px;min-height: 800px; height: auto;margin: 0 auto;}
+.product_list_view{width: 890px;margin-top: -260px;}
+.product_entry_form{margin-top: -260px; padding-left: 20px;}
+#pform{margin-top: -260px; height: auto;}
+#edit_form{margin-top: -260px;}
+.requested_order{margin-top: -260px;}
+#top {
+    position: relative;
+    color: #99ccff;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+.cart_image:link{
+    background: #D20005;
+
+}
+
+#left {
+    float: left;
+    padding: 5px;
+    width: 200px;
+}
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+}
+
+.left_content {
+    margin-top: -15px;
+    padding: 5px;
+    margin-left: 205px;
+
+}
+.staff_left_content{
+    margin-top: 0;
+    padding: 5px;
+    margin-left: 200px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link  {
+    color:#045491;
+    font-weight : bolder;
+    text-decoration: none;
+    font-family: sans-serif,serif,cursive,monospace;
+    letter-spacing: -.8pt;
+
+}
+#top a:visited{
+    color: #D20005;
+
+}
+#top a:link:hover, #top a:visited:hover  {
+    color: sienna;
+    font-weight : bold;
+    text-decoration : none;
+}
+
+.out_panel{margin-right: 50px;}
+.top_menu{margin-top: 10px;}
+.cart_pane
+{
+    width: 1095px; 
+    height: auto;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+}
+.continue_shoping{
+    height: 40px; width: 140px;font-size: 11pt; color: blue; margin-left: 10px;margin-bottom: 20px;position: relative;
+}
+.check_out_btn{
+    height: 40px;width: 120px;font-size: 11pt;color: blue;margin-left: 0px;margin-bottom: 20px;position: relative;
+}
+.total_price{
+    font-size: 14pt;color: red;font-weight: bold;float: right;margin-right: 340px;margin-top: -12px; position: inherit;
+}
+.check_pane{
+    width: 1095px;
+    height: auto;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+}
+.check_btn_review{
+    float: right;
+    margin-right: 20px;
+    width: 160px;
+    height: 50px;
+}
+.customer_order_panel{
+    width: 1095px;
+    height: auto;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+}
+.customer_confirm_btn{
+    width: 105px;height: 50px;float: right;margin-right: 15px;position: relative;font-size: 12pt;color: darkcyan;
+}
+.customer-print-btn{
+    width: 90px; height: 50px;float: right;margin-right: 5px;position: relative;font-size: 12pt;color: darkcyan;
+}
+.customer_form{width: 790px; height: auto;}
+.customer_totalprice{color: red; font-size: 16pt; margin-top: 0px;}
+.confarm_page{width: 800px; height: 200px; margin: 0 auto; margin-top: 80px}
+.confarm_p{font-size: 15pt}
+
+.effect
+{
+    position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect:before, .effect:after
+{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+} 
+.effect:after
+{
+    right:10px; 
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+    -moz-transform:skew(8deg) rotate(3deg);     
+    -ms-transform:skew(8deg) rotate(3deg);     
+    -o-transform:skew(8deg) rotate(3deg); 
+    transform:skew(8deg) rotate(3deg);
+}
